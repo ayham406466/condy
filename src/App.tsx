@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -9,20 +9,38 @@ import QuduratTest from './pages/QuduratTest';
 import TahsiliTest from './pages/TahsiliTest';
 import { AuthProvider } from './context/AuthContext';
 
-function App() {
+function App(): React.ReactElement {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Login />
+    },
+    {
+      path: '/register',
+      element: <Register />
+    },
+    {
+      path: '/dashboard',
+      element: <Dashboard />
+    },
+    {
+      path: '/admin',
+      element: <AdminDashboard />
+    },
+    {
+      path: '/qudurat/:type/:subject',
+      element: <QuduratTest />
+    },
+    {
+      path: '/tahsili/:subject',
+      element: <TahsiliTest />
+    }
+  ]);
+
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Toaster position="top-center" />
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/qudurat/:type/:subject" element={<QuduratTest />} />
-          <Route path="/tahsili/:subject" element={<TahsiliTest />} />
-        </Routes>
-      </BrowserRouter>
+      <Toaster position="top-center" />
+      <RouterProvider router={router} />
     </AuthProvider>
   );
 }
