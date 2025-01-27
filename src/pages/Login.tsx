@@ -39,7 +39,8 @@ export default function Login() {
         <div className="text-center mb-8">
           <GraduationCap className="w-16 h-16 mx-auto text-indigo-600 mb-4" />
           <h1 className="text-3xl font-bold text-gray-800 mb-2">تدريب القدرات والتحصيلي</h1>
-          <h2 className="text-xl text-gray-600 mb-4">مدرسة سلمان الفارسي</h2>
+          <h2 className="text-xl text-gray-600 mb-1">مدرسة سلمان الفارسي</h2>
+          <p className="text-lg text-gray-500 mb-4">مكة النسيم</p>
           <div className="text-sm text-gray-500">
             <p>المصمم: ايهم محمد</p>
             <p>اعداد الأسئلة: محمود زمزمي</p>
